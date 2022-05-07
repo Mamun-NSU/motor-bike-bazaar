@@ -1,10 +1,21 @@
 import React from "react";
 import "./Footer.css";
+
 const Footer = () => {
+  const today = new Date();
+  const year = today.getFullYear();
   return (
-    <div className="w-75 mx-auto">
-      <h2>This is Footer Section</h2>
-    </div>
+    <footer className="text-center mt-5">
+      <p>
+        All rights reserved by{" "}
+        <a href="https://www.linkedin.com/in/mamun2528/" target="_blank">
+          Al Mamun
+        </a>
+      </p>
+      <p>
+        <small>copyright @ {year} </small>
+      </p>
+    </footer>
   );
 };
 
