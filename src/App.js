@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import Footer from "./components/Shared/Footer/Footer";
 import Header from "./components/Shared/Header/Header";
-import Home from "./components/Home/Home";
+
 import { Route, Routes } from "react-router-dom";
 import Blogs from "./components/Blogs/Blogs";
 import About from "./components/About/About";
@@ -12,6 +12,7 @@ import ManageProducts from "./components/ManageProducts/ManageProducts";
 
 import NotFound from "./components/Shared/NotFound/NotFound";
 import AddProduct from "./components/AddProduct/AddProduct";
+import Home from "./components/Home/Home/Home";
 
 function App() {
   return (
