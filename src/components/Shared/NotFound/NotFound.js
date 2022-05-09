@@ -1,6 +1,6 @@
 import React from "react";
 import "./NotFound.css";
-import loddingImg from "../../../Images/LoaddingImg/loading.gif";
+import loddingImg from "../../../Images/error.jpg";
 
 const NotFound = () => {
   return (

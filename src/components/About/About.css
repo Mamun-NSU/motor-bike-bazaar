@@ -1,0 +1,17 @@
+/* .text-container {
+    padding: 20px;
+} */
+
+.myImg {
+    display: block;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    border: 1px solid lightblue;
+    border-radius: 25px;
+}
+
+.bold-txt {
+    font-weight: bold;
+    margin-right: 5px;
+}
