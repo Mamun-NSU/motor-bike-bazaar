@@ -28,6 +28,9 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/addItem" element={<AddProduct></AddProduct>}></Route>
+        <Route path="/myItems" element={<MyItems></MyItems>}></Route>
+        <Route path="/manageItems" element={<ManageProducts></ManageProducts>}></Route>
         <Route
           path="/products/:productId"
           element={<ProductDetail></ProductDetail>}

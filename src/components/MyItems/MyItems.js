@@ -14,7 +14,7 @@ const MyItems = () => {
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;
-      const url = `http://localhost:5000/order?email=${email}`;
+      const url = `https://peaceful-caverns-71205.herokuapp.com/order?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setItems(data);

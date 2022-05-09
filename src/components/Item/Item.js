@@ -8,7 +8,7 @@ const Item = ({ item }) => {
   const deleteItem = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/items/${id}`;
+      const url = `https://peaceful-caverns-71205.herokuapp.com/items/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -25,7 +25,7 @@ const Item = ({ item }) => {
       <img className="w-100" src={image} alt="" />
       <h2>{name}</h2>
       <p>Price: {price}</p>
-      {/* <p>Quantity: {quantity}</p> */}
+      <p>Quantity: {quantity}</p>
       <p>Supplier Name: {supplier_name}</p>
       {/* <p>
         <small>{about}</small>

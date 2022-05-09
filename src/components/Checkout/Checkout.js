@@ -22,7 +22,7 @@ const Checkout = () => {
       quantity: event.target.quantity.value,
       supplier_name: event.target.supplier_name.value
     }
-    axios.post('http://localhost:5000/items', item)
+    axios.post('https://peaceful-caverns-71205.herokuapp.com/items', item)
       .then(response => {
         const { data } = response;
         if (data.insertedId) {
