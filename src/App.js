@@ -6,6 +6,9 @@ import Header from "./components/Shared/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Blogs from "./components/Blogs/Blogs";
 import About from "./components/About/About";
+import Login from "./components/Login/Login/Login";
+import Register from "./components/Login/Register/Register";
+import RequireAuth from "./components/Login/RequireAuth/RequireAuth";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Checkout from "./components/Checkout/Checkout";
 import ManageProducts from "./components/ManageProducts/ManageProducts";
@@ -23,12 +26,16 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
         <Route path="/blogs" element={<Blogs></Blogs>} />
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route
           path="/products/:productId"
           element={<ProductDetail></ProductDetail>}
         ></Route>
         <Route path="/about" element={<About></About>} />
-        <Route path="/checkout" element={<Checkout></Checkout>}></Route>
+        <RequireAuth>
+          <Route path="/checkout" element={<Checkout></Checkout>}></Route>
+        </RequireAuth>
         <Route path="/Addproduct" element={<AddProduct></AddProduct>}></Route>
         <Route
           path="/manage"
