@@ -13,6 +13,7 @@ import ManageProducts from "./components/ManageProducts/ManageProducts";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import AddProduct from "./components/AddProduct/AddProduct";
 import Home from "./components/Home/Home/Home";
+import MyItems from "./components/MyItems/MyItems";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           path="/manage"
           element={<ManageProducts></ManageProducts>}
         ></Route>
+        <Route path="/items" element={<MyItems></MyItems>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
