@@ -1,11 +1,15 @@
 import React from "react";
 import "./Loading.css";
+import { Spinner } from "react-bootstrap";
+
 const Loading = () => {
   return (
-    <div className="w-75 mx-auto">
-      <h2>This is Loading Section</h2>
+    <div
+      style={{ height: "300px" }}
+      className="w-100 d-flex justify-content-center align-items-center"
+    >
+      <Spinner animation="border" variant="primary" />
     </div>
   );
 };
-
 export default Loading;
