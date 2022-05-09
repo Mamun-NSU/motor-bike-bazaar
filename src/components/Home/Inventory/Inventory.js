@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
-import "./Products.css";
+import "./Inventory.css";
 
-const Products = () => {
+const Inventory = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div id="products" className="container">
+    <div id="inventory" className="container">
       <div className="row">
         <h1 className="text-primary text-center mt-5"> Our Products</h1>
         <div className="products-container">
@@ -25,4 +25,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Inventory;

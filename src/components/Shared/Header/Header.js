@@ -30,11 +30,11 @@ const Header = () => {
               <Nav.Link as={Link} to="home">
                 Home
               </Nav.Link>
-              <Nav.Link href="home#products">Products</Nav.Link>
+              <Nav.Link href="home#inventory">Inventory</Nav.Link>
               <Nav.Link as={Link} to="blogs">
                 Blogs
               </Nav.Link>
-              <Nav.Link as={Link} to="manageItems">
+              <Nav.Link as={Link} to="manage">
                 Manage Items
               </Nav.Link>
               <Nav.Link as={Link} to="about">
