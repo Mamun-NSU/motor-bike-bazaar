@@ -14,7 +14,8 @@ const MyItems = () => {
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;
-      const url = `https://peaceful-caverns-71205.herokuapp.com/order?email=${email}`;
+      const url = `http://localhost:5000/items?email=${email}`;
+      console.log("Item get URL:", url);
       try {
         const { data } = await axiosPrivate.get(url);
         setItems(data);
@@ -33,9 +34,24 @@ const MyItems = () => {
       <h1 className="text-primary text-center mt-5"> My Items</h1>
       <h2>My items: {items.length}</h2>
       <div className="items-container">
-        {items.map((item) => (
-          <Item key={item._id} item={item}></Item>
-        ))}
+        <table className="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Email</th>
+              <th>Item Name</th>
+              <th>Total Items</th>
+              <th>Total Price</th>
+              <th>Location</th>
+              <th>Remove Item</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((item, index) => (
+              <Item key={item._id} item={item} index={index}></Item>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

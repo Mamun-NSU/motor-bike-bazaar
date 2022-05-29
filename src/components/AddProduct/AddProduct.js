@@ -6,7 +6,7 @@ const AddProduct = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const url = `https://peaceful-caverns-71205.herokuapp.com/products`;
+    const url = `http://localhost:5000/products`;
     fetch(url, {
       method: "POST",
       headers: {

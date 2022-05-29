@@ -1,14 +1,23 @@
 import React from "react";
 import "./Item.css";
 import useItems from "../../hooks/useItems";
-const Item = ({ item }) => {
-  const { _id, name, image, about, price, quantity, supplier_name } = item;
+const Item = ({ item, index }) => {
+  const {
+    _id,
+    user_email,
+    user_name,
+    item_name,
+    item_quantity,
+    item_price,
+    item_address,
+  } = item;
   const [items, setItems] = useItems();
 
   const deleteItem = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `https://peaceful-caverns-71205.herokuapp.com/items/${id}`;
+      const url = `http://localhost:5000/items/${id}`;
+      console.log("Delete URL:", url);
       fetch(url, {
         method: "DELETE",
       })
@@ -21,19 +30,19 @@ const Item = ({ item }) => {
     }
   };
   return (
-    <div className="item">
-      <img className="w-100" src={image} alt="" />
-      <h2>{name}</h2>
-      <p>Price: {price}</p>
-      <p>Quantity: {quantity}</p>
-      <p>Supplier Name: {supplier_name}</p>
-      {/* <p>
-        <small>{about}</small>
-      </p> */}
-      <button onClick={() => deleteItem(_id)} className="btn btn-primary">
-        Delete: {name}
-      </button>
-    </div>
+    <tr>
+      <th>{index + 1}</th>
+      <td>{user_email}</td>
+      <td>{item_name}</td>
+      <td>{item_quantity}</td>
+      <td>{item_price}</td>
+      <td>{item_address}</td>
+      <td>
+        <button onClick={() => deleteItem(_id)} className="btn btn-primary">
+          Delete: {item_name}
+        </button>
+      </td>
+    </tr>
   );
 };
 

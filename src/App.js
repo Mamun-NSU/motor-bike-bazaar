@@ -30,15 +30,25 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/addItem" element={<AddProduct></AddProduct>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
-        <Route path="/manageItems" element={<ManageProducts></ManageProducts>}></Route>
+        <Route
+          path="/manageItems"
+          element={<ManageProducts></ManageProducts>}
+        ></Route>
         <Route
           path="/products/:productId"
           element={<ProductDetail></ProductDetail>}
         ></Route>
+        {/* <Route
+          path="/products/:productId"
+          element={<Checkout></Checkout>}
+        ></Route> */}
         <Route path="/about" element={<About></About>} />
         {/* <RequireAuth> */}
         {/* itemId */}
-        <Route path="/checkout" element={<Checkout></Checkout>}></Route>
+        <Route
+          path="/checkout/:productId"
+          element={<Checkout></Checkout>}
+        ></Route>
         {/* </RequireAuth> */}
         <Route path="/Addproduct" element={<AddProduct></AddProduct>}></Route>
         <Route

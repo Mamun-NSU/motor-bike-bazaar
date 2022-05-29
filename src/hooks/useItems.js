@@ -4,7 +4,7 @@ const useItems = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://peaceful-caverns-71205.herokuapp.com/items")
+    fetch("http://localhost:5000/items")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);

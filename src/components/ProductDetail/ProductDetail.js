@@ -5,19 +5,30 @@ const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
 
+  console.log("ProductId=", productId);
+
   useEffect(() => {
-    const url = `https://peaceful-caverns-71205.herokuapp.com/products/${productId}`;
+    const url = `http://localhost:5000/products/${productId}`;
     console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [productId]);
+  const checkLink = `/checkout/${productId}`;
 
   return (
-    <div>
+    <div className="text-center">
       <h2>You are about to book: {product.name}</h2>
+      <img className="w-50" src={product.image} alt="" />
+      <h2>{product.name}</h2>
+      <p>Price: {product.price}</p>
+      <p>Quantity: {product.quantity}</p>
+      <p>Supplier Name: {product.supplier_name}</p>
+      <p>
+        <small>{product.about}</small>
+      </p>
       <div className="text-center">
-        <Link to="/checkout">
+        <Link to={checkLink}>
           <button className="btn btn-primary">Proceed Checkout</button>
         </Link>
       </div>
