@@ -6,13 +6,15 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 
 const Checkout = () => {
   const { itemId } = useParams();
   const [item] = useItems(itemId);
+  const [user, loading, error] = useAuthState(auth);
+  const { register, handleSubmit, reset } = useForm();
 
-
-
+  // const url = `https://peaceful-caverns-71205.herokuapp.com/.../${itemId}`;
 
   const handlePlaceOrder = event => {
     event.preventDefault();
@@ -39,15 +41,65 @@ const Checkout = () => {
 
         {/* <input className='w-100 mb-2' type="email" value={user?.email} name="email" placeholder='email' required readOnly disabled /> */}
         <br />
-        <input className='w-100 mb-2' type="text" name="name" placeholder='name' required />
+        <input
+          type="text"
+          name="user_name"
+          disabled
+          value={user?.displayName || ""}
+          className="w-100 mb-2"
+        />
         <br />
-        <input className='w-100 mb-2' type="number" name="price" placeholder='price' required />
-        <br />
-        <input className='w-100 mb-2' type="number" name="quantity" placeholder='quantity' required />
-        <br />
-        <input className='w-100 mb-2' type="text" name="supplier_name" placeholder='supplier_name' required />
-        <br />
-        <input className='btn btn-primary' type="submit" value="Place item" />
+        <input
+          type="user_email"
+          name="email"
+          disabled
+          value={user?.email || ""}
+          className="w-100 mb-2"
+        />
+        <input
+          type="text"
+          name="order_name"
+          disabled
+          // value={part.name}
+          className="w-100 mb-2"
+        />
+        <input
+          //Here we write a
+          // onMouseLeave={calculatePrice}
+          type="number"
+          name="order_quantity"
+          placeholder="Order Quantity"
+          className="w-100 mb-2"
+          {...register("order_quantity", {
+            required: {
+              value: true,
+              message: "Order Quantity is Required",
+            },
+          })}
+        />
+        {/* <span style={{ color: "red" }}>{numberError}</span> */}
+        <input
+          type="number"
+          name="order_price"
+          disabled
+          // value={totalPrice}
+          className="w-100 mb-2"
+        />
+        <input
+          type="text"
+          name="order_address"
+          placeholder="Order Address"
+          className="w-100 mb-2"
+        />
+
+        <button
+          type="submit"
+          // onClick={() => navigateToPartOrder(part._id)}
+          className="btn btn-secondary w-full max-w-xs"
+        >
+          Order:
+          {/* {part.name} */}
+        </button>
       </form>
     </div>
   );
