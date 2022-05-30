@@ -16,7 +16,7 @@ const Item = ({ item, index }) => {
   const deleteItem = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/items/${id}`;
+      const url = `https://tranquil-falls-30970.herokuapp.com/items/${id}`;
       // console.log("Delete URL:", url);
       fetch(url, {
         method: "DELETE",

@@ -8,7 +8,7 @@ const ProductDetail = () => {
   console.log("ProductId=", productId);
 
   useEffect(() => {
-    const url = `http://localhost:5000/products/${productId}`;
+    const url = `https://tranquil-falls-30970.herokuapp.com/products/${productId}`;
     // console.log(url);
     fetch(url, {
       method: "GET",

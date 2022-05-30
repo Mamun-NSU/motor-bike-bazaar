@@ -15,7 +15,7 @@ const Checkout = () => {
   const { register, handleSubmit, reset } = useForm();
 
   console.log("ItemId: ", productId);
-  const url = `http://localhost:5000/products/${productId}`;
+  const url = `https://tranquil-falls-30970.herokuapp.com/products/${productId}`;
 
   const { data: product, isLoading } = useQuery(["products", productId], () =>
     fetch(url, {
@@ -41,7 +41,7 @@ const Checkout = () => {
       item_price: totalPrice,
       item_address: event.target.item_address.value,
     };
-    const url = `http://localhost:5000/items`;
+    const url = `https://tranquil-falls-30970.herokuapp.com/items`;
     console.log("Item API:", url);
     fetch(url, {
       method: "POST",

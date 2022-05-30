@@ -4,7 +4,7 @@ const useProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products", {
+    fetch("https://tranquil-falls-30970.herokuapp.com/products", {
       method: "GET",
       headers: {
         "content-type": "application/json",
