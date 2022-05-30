@@ -20,9 +20,9 @@ const Checkout = () => {
   const { data: product, isLoading } = useQuery(["products", productId], () =>
     fetch(url, {
       method: "GET",
-      // headers: {
-      //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      // },
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     }).then((res) => res.json())
   );
 
@@ -47,7 +47,7 @@ const Checkout = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(items),
     })

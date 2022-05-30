@@ -51,10 +51,12 @@ function App() {
         ></Route>
         {/* </RequireAuth> */}
         <Route path="/Addproduct" element={<AddProduct></AddProduct>}></Route>
+        {/* <RequireAuth> */}
         <Route
           path="/manage"
           element={<ManageProducts></ManageProducts>}
         ></Route>
+        {/* </RequireAuth> */}
         <Route path="/items" element={<MyItems></MyItems>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

@@ -9,8 +9,13 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const url = `http://localhost:5000/products/${productId}`;
-    console.log(url);
-    fetch(url)
+    // console.log(url);
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [productId]);

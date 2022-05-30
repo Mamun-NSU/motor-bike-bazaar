@@ -17,9 +17,12 @@ const Item = ({ item, index }) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
       const url = `http://localhost:5000/items/${id}`;
-      console.log("Delete URL:", url);
+      // console.log("Delete URL:", url);
       fetch(url, {
         method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        }
       })
         .then((res) => res.json())
         .then((data) => {

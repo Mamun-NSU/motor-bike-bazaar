@@ -55,7 +55,7 @@ const Header = () => {
                 </>
               }
 
-
+              {user && user.email}
 
               {user ? (
                 <button

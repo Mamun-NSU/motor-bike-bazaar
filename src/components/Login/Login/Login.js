@@ -11,12 +11,15 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Loading from "../../Shared/Loading/Loading";
+import useToken from "../../../hooks/useToken";
 
 const Login = () => {
   const emailRef = useRef("");
-  const passwordRef = useRef("");
+  let navigate = useNavigate();
+  let location = useLocation();
 
   const [login, setLogin] = useState(true);
+  let from = location.state?.from?.pathname || "/";
 
   const [confirmError, setConfirmError] = useState("");
 
@@ -38,6 +41,8 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
 
   const [loginUser, loginloading, loginerror] = useAuthState(auth);
+  const [token] = useToken(userInfo);
+
 
   const handleFormInput = (event) => {
     userInfo[event.target.name] = event.target.value;
@@ -57,20 +62,28 @@ const Login = () => {
     } else {
       signInWithEmailAndPassword(userInfo.email, userInfo.password);
     }
-
-    console.log(userInfo);
   };
 
-  let navigate = useNavigate();
-  let location = useLocation();
+  let errorElement;
+
+  if (loading || sending) {
+    return <Loading></Loading>;
+  }
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
+
+  if (error) {
+    // errorElement = <p className="text-danger">Error: {error?.message}</p>;
+  }
 
   // let from = location.state?.from?.pathname || "/";
   // let from = location.state.from.pathname || "/";
-  let errorElement;
 
   if (loginUser) {
-    // navigate(from, { replace: true });
-    navigate("/home");
+    navigate(from, { replace: true });
+    // navigate("/home");
   }
   if (loading || sending || loginloading || creteLoading) {
     return <Loading></Loading>;
