@@ -9,8 +9,11 @@ Live server on Google Firebase:
 
 ### `Github Link:`
 
-Private Git Repo Link:
-[https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Mamun-NSU](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Mamun-NSU)
+Git Repo Link for client site:
+[https://github.com/Mamun-NSU/motor-bike-bazaar](https://github.com/Mamun-NSU/motor-bike-bazaar)
+
+Git Repo Link for server site:
+[https://github.com/Mamun-NSU/motor-bike-bazaar-server](https://github.com/Mamun-NSU/motor-bike-bazaar-server)
 
 ### `Project details:`
 
